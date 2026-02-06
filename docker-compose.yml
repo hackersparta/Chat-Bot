@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      target: builder
+    ports:
+      - "9851:9851"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - PORT=9851
+    command: npm run dev
